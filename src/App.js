@@ -6,7 +6,7 @@ import { Video } from "./pages/Video";
 
 const routes = {
   "/": () => <Popular />,
-  "/search": () => <Search />,
+  "/search/:query": ({ query }) => <Search query={query} />,
   "/video/:id": ({ id }) => <Video id={id} />,
 };
 
@@ -16,7 +16,7 @@ const App = () => {
   return (
     <div className="App">
       <A href="/">Popular</A> <br />
-      <A href="/search">Search</A>
+      <A href="/search/owls">Search</A>
       {routeResult}
     </div>
   );

@@ -16,7 +16,7 @@ export const useMainList = () => {
   return list;
 };
 
-export const useSearch = (search = "american gods") => {
+export const useSearch = (search) => {
   const [list, setList] = useState([]);
 
   useEffect(() => {
