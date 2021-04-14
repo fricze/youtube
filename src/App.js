@@ -1,13 +1,52 @@
 import "./App.css";
 import { useRoutes, A } from "hookrouter";
+import { useSearch, useMainList } from "./data";
+
+const SnippetThumbnail = ({ url }) => (
+  <figure>
+    <img src={url} alt="video thumbnail" />
+  </figure>
+);
+
+const SnippetDescription = ({ description }) => (
+  <p>{description.substring(0, 400)}</p>
+);
+
+const Snippet = ({ title, channelTitle, thumbnails, description }) => (
+  <article>
+    <header>
+      <h1>title: {title}</h1>
+      <h2>channel: {channelTitle}</h2>
+    </header>
+
+    <SnippetThumbnail {...thumbnails.default} />
+
+    <SnippetDescription description={description} />
+  </article>
+);
+
+const MainList = () => {
+  const list = useSearch();
+
+  return (
+    <div>
+      {list.map(({ id, snippet }) => (
+        <div key={id.videoId}>
+          <Snippet {...snippet} />
+        </div>
+      ))}
+    </div>
+  );
+};
 
 const routes = {
+  "/": () => <MainList />,
   "/user": () => <div>user</div>,
   "/about": () => <div>about</div>,
   "/contact": () => <div>contact</div>,
 };
 
-function App() {
+const App = () => {
   const routeResult = useRoutes(routes);
 
   return (
@@ -19,14 +58,6 @@ function App() {
       {routeResult}
     </div>
   );
-}
+};
 
 export default App;
-
-const API_KEY = "AIzaSyDHAysMhipieU7n_6M8cAfE1xNduI9lXRY";
-
-const data = fetch(
-  `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=US&key=${API_KEY}`
-);
-
-data.then((a) => a.json()).then((a) => console.log(a));
