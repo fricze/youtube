@@ -7,7 +7,7 @@ import { Video } from "./pages/Video";
 const routes = {
   "/": () => <Popular />,
   "/search": () => <Search />,
-  "/video": () => <Video />,
+  "/video/:id": ({ id }) => <Video id={id} />,
 };
 
 const App = () => {

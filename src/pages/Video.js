@@ -1,3 +1,5 @@
+import { useVideo } from "../data";
+
 const SnippetThumbnail = ({ url }) => (
   <figure>
     <img src={url} alt="video thumbnail" />
@@ -8,15 +10,16 @@ const SnippetDescription = ({ description }) => (
   <p>{description.substring(0, 400)}</p>
 );
 
-export const Video = ({ title, channelTitle, thumbnails, description }) => (
-  <article>
-    <header>
-      <h1>title: {title}</h1>
-      <h2>channel: {channelTitle}</h2>
-    </header>
+export const Video = ({ id, title, channelTitle, thumbnails, description }) => {
+  const video = useVideo(id);
 
-    <SnippetThumbnail {...thumbnails.default} />
+  if (!video) {
+    return <div>loading</div>;
+  }
 
-    <SnippetDescription description={description} />
-  </article>
-);
+  return (
+    <article>
+      <div dangerouslySetInnerHTML={{ __html: video.player.embedHtml }} />
+    </article>
+  );
+};
