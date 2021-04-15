@@ -1,9 +1,11 @@
 import { A } from "hookrouter";
 
-const SnippetThumbnail = ({ url }) => (
-  <figure className="video-thumbnail">
-    <img src={url} alt="video thumbnail" />
-  </figure>
+const SnippetThumbnail = ({ videoLink, url }) => (
+  <A href={videoLink}>
+    <figure className="video-thumbnail">
+      <img src={url} alt="video thumbnail" />
+    </figure>
+  </A>
 );
 
 const SnippetDescription = ({ description }) => (
@@ -17,20 +19,24 @@ export const Snippet = ({
   channelTitle,
   thumbnails,
   description,
-}) => (
-  <article className="video-snippet">
-    <header className="video-header">
-      <A className="link" href={"/video/" + id}>
-        <h1 className="video-title">{title}</h1>
-      </A>
+}) => {
+  const videoLink = "/video/" + id;
 
-      <a href={`https://www.youtube.com/channel/${channelId}`}>
-        <h2 className="video-channel">channel: {channelTitle}</h2>
-      </a>
-    </header>
+  return (
+    <article className="video-snippet">
+      <header className="video-header">
+        <A className="link" href={videoLink}>
+          <h1 className="video-title">{title}</h1>
+        </A>
 
-    <SnippetThumbnail {...thumbnails.medium} />
+        <a href={`https://www.youtube.com/channel/${channelId}`}>
+          <h2 className="video-channel">channel: {channelTitle}</h2>
+        </a>
+      </header>
 
-    <SnippetDescription description={description} />
-  </article>
-);
+      <SnippetThumbnail videoLink={videoLink} {...thumbnails.medium} />
+
+      <SnippetDescription description={description} />
+    </article>
+  );
+};
