@@ -14,6 +14,14 @@
   grid-gap: 16px;
 }
 
+.video-snippet {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 16px;
+  overflow: hidden;
+  padding-bottom: 9%;
+}
+
 .video-header {
   order: 1;
 }
@@ -25,13 +33,6 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   margin-top: 16px;
-}
-
-.video-snippet {
-  display: flex;
-  flex-direction: column;
-  padding: 8px 16px;
-  overflow: hidden;
 }
 
 .video-title {
