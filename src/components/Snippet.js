@@ -26,11 +26,11 @@ export const Snippet = ({
     <article className="video-snippet">
       <header className="video-header">
         <A className="link" href={videoLink}>
-          <h1 className="video-title">{title}</h1>
+          <h1 className="video-title">{unescape(title)}</h1>
         </A>
 
         <a href={`https://www.youtube.com/channel/${channelId}`}>
-          <h2 className="video-channel">channel: {channelTitle}</h2>
+          <h2 className="video-channel">channel: {unescape(channelTitle)}</h2>
         </a>
       </header>
 

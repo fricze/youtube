@@ -123,3 +123,17 @@
   margin: 24px 0;
   font-size: 24px;
 }
+
+.video-tags {
+  list-style: none;
+  margin: 16px 0;
+  padding: 0;
+}
+
+.video-tags li {
+  display: inline;
+}
+
+.video-tags li::after {
+  content: ", ";
+}

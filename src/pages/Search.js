@@ -8,7 +8,7 @@ export const Videos = ({ query, pageToken }) => {
   const videos = useSearch({ query, pageToken });
   return (
     <div>
-      <Info infoText={"Videos for '" + query + "'"} />
+      <Info infoText={"Videos for '" + unescape(query) + "'"} />
 
       <Paging path={"/search/" + query + "/"} {...videos} />
       <List {...videos} />
