@@ -7,7 +7,7 @@ import { SearchInput } from "./components/SearchInput";
 
 const routes = {
   "/": () => <Popular />,
-  "/search/": () => <Search query={"default query"} />,
+  "/search/": () => <Search infoText={"Type in your query to find videos"} />,
   "/search/:query": ({ query }) => <Search query={query} />,
   "/video/:id": ({ id }) => <Video id={id} />,
 };
