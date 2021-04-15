@@ -13,6 +13,8 @@ export const SearchInput = () => {
     >
       <label>
         <input
+          className="search-videos"
+          placeholder="Search for videos"
           type="text"
           value={value}
           onChange={(e) => setValue(e.target.value)}
