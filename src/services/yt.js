@@ -2,32 +2,42 @@ import { useEffect, useState } from "react";
 
 const API_KEY = "AIzaSyDHAysMhipieU7n_6M8cAfE1xNduI9lXRY";
 
-export const useMainList = () => {
-  const [list, setList] = useState([]);
+export const usePopular = ({ pageToken }) => {
+  const [list, setList] = useState({ items: [] });
+
+  const url =
+    `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=15&regionCode=US&key=${API_KEY}` +
+    (pageToken ? `&pageToken=${pageToken}` : "");
 
   useEffect(() => {
-    fetch(
-      `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=15&regionCode=US&key=${API_KEY}`
-    )
+    fetch(url)
       .then((res) => res.json())
-      .then(({ items }) => setList(items));
-  }, []);
+      .then(({ items, prevPageToken, nextPageToken }) =>
+        setList({ items, prevPageToken, nextPageToken })
+      );
+  }, [url]);
 
   return list;
 };
 
-export const useSearch = (search) => {
-  const [list, setList] = useState([]);
+export const useSearch = ({ query, pageToken }) => {
+  const [list, setList] = useState({ items: [] });
+
+  const url =
+    `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=15&q=${query}&key=${API_KEY}` +
+    (pageToken ? `&pageToken=${pageToken}` : "");
 
   useEffect(() => {
-    fetch(
-      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=15&q=${search}&key=${API_KEY}`
-    )
+    fetch(url)
       .then((res) => res.json())
-      .then(({ items }) =>
-        setList(items.map((item) => ({ ...item, id: item.id.videoId })))
+      .then(({ items, prevPageToken, nextPageToken }) =>
+        setList({
+          items: items.map((item) => ({ ...item, id: item.id.videoId })),
+          prevPageToken,
+          nextPageToken,
+        })
       );
-  }, [search]);
+  }, [query, url]);
 
   return list;
 };

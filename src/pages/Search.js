@@ -1,12 +1,22 @@
 import { List } from "../components/List";
+import { Paging } from "../components/Paging";
 import { useSearch } from "../services/yt";
 
 const Info = ({ infoText }) => <div>{infoText}</div>;
-const Videos = ({ query }) => <List videos={useSearch(query)} />;
 
-export const Search = ({ query, infoText }) =>
+export const Videos = ({ query, pageToken }) => {
+  const videos = useSearch({ query, pageToken });
+  return (
+    <div>
+      <Paging path={"/search/" + query + "/"} {...videos} />
+      <List {...videos} />
+    </div>
+  );
+};
+
+export const Search = ({ pageToken, query, infoText }) =>
   query ? (
-    <Videos query={query} />
+    <Videos query={query} pageToken={pageToken} />
   ) : infoText ? (
     <Info infoText={infoText} />
   ) : (

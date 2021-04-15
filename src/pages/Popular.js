@@ -1,4 +1,13 @@
 import { List } from "../components/List";
-import { useMainList } from "../services/yt";
+import { Paging } from "../components/Paging";
+import { usePopular } from "../services/yt";
 
-export const Popular = () => <List videos={useMainList()} />;
+export const Popular = ({ pageToken }) => {
+  const videos = usePopular({ pageToken });
+  return (
+    <div>
+      <Paging {...videos} />
+      <List {...videos} />
+    </div>
+  );
+};
