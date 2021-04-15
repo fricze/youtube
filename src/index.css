@@ -1,15 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital@0;1&display=swap");
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: "IBM Plex Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  line-height: 1.2;
+  font-size: 16px;
 }
 
 h1,
@@ -21,6 +18,8 @@ p,
 article,
 figure,
 img {
+  line-height: 1.2;
+  font-size: 16px;
   margin: 0;
   padding: 0;
 }
