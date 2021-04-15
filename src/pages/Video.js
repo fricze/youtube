@@ -1,6 +1,6 @@
 import { useVideo } from "../services/yt";
 
-export const Video = ({ id, title, channelTitle, thumbnails, description }) => {
+export const Video = ({ id }) => {
   const video = useVideo(id);
 
   if (!video) {
