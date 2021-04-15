@@ -7,7 +7,7 @@ export const useMainList = () => {
 
   useEffect(() => {
     fetch(
-      `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=US&key=${API_KEY}`
+      `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=15&regionCode=US&key=${API_KEY}`
     )
       .then((res) => res.json())
       .then(({ items }) => setList(items));
@@ -21,7 +21,7 @@ export const useSearch = (search) => {
 
   useEffect(() => {
     fetch(
-      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${search}&key=${API_KEY}`
+      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=15&q=${search}&key=${API_KEY}`
     )
       .then((res) => res.json())
       .then(({ items }) =>
