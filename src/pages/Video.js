@@ -1,3 +1,4 @@
+import unescape from "unescape";
 import { useVideo } from "../services/yt";
 import { Tags } from "../components/Tags";
 import { SingleVideo } from "../components/SingleVideo";
@@ -16,7 +17,7 @@ export const Video = ({ id }) => {
       <SingleVideo id={id} />
 
       <a href={`https://www.youtube.com/channel/${channelId}`}>
-        <h2 className="video-channel">channel: {channelTitle}</h2>
+        <h2 className="video-channel">channel: {unescape(channelTitle)}</h2>
       </a>
 
       <Tags tags={tags} />

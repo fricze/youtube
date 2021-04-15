@@ -1,4 +1,5 @@
 import { A } from "hookrouter";
+import unescape from "unescape";
 
 const SnippetThumbnail = ({ videoLink, url }) => (
   <A href={videoLink}>
