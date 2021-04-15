@@ -1,15 +1,5 @@
 import { useVideo } from "../services/yt";
 
-const SnippetThumbnail = ({ url }) => (
-  <figure>
-    <img src={url} alt="video thumbnail" />
-  </figure>
-);
-
-const SnippetDescription = ({ description }) => (
-  <p>{description.substring(0, 400)}</p>
-);
-
 export const Video = ({ id, title, channelTitle, thumbnails, description }) => {
   const video = useVideo(id);
 
@@ -18,8 +8,14 @@ export const Video = ({ id, title, channelTitle, thumbnails, description }) => {
   }
 
   return (
-    <article>
-      <div dangerouslySetInnerHTML={{ __html: video.player.embedHtml }} />
+    <article className="single-video">
+      <iframe
+        title="title"
+        src={`https://www.youtube.com/embed/${id}`}
+        frameBorder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      ></iframe>
     </article>
   );
 };
