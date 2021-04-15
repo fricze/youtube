@@ -19,7 +19,7 @@ export const Snippet = ({
 }) => (
   <article>
     <header>
-      <A href={"/video/" + id}>
+      <A className="link" href={"/video/" + id}>
         <h1>title: {title}</h1>
       </A>
       <h2>channel: {channelTitle}</h2>

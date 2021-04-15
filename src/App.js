@@ -3,6 +3,7 @@ import { useRoutes, A } from "hookrouter";
 import { Search } from "./pages/Search";
 import { Popular } from "./pages/Popular";
 import { Video } from "./pages/Video";
+import { SearchInput } from "./components/SearchInput";
 
 const routes = {
   "/": () => <Popular />,
@@ -14,7 +15,8 @@ const App = () => {
   const routeResult = useRoutes(routes);
 
   return (
-    <div className="App">
+    <div className="app">
+      <SearchInput />
       <A href="/">Popular</A> <br />
       <A href="/search/owls">Search</A>
       {routeResult}
