@@ -8,6 +8,7 @@ export const Popular = ({ pageToken }) => {
     <div>
       <Paging {...videos} />
       <List {...videos} />
+      <Paging {...videos} />
     </div>
   );
 };
