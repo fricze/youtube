@@ -7,6 +7,7 @@ import { SearchInput } from "./components/SearchInput";
 
 const routes = {
   "/": () => <Popular />,
+  "/search/": () => <Search query={"default query"} />,
   "/search/:query": ({ query }) => <Search query={query} />,
   "/video/:id": ({ id }) => <Video id={id} />,
 };
@@ -18,7 +19,6 @@ const App = () => {
     <div className="app">
       <SearchInput />
       <A href="/">Popular</A> <br />
-      <A href="/search/owls">Search</A>
       {routeResult}
     </div>
   );

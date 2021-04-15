@@ -1,4 +1,4 @@
-import { useVideo } from "../data";
+import { useVideo } from "../services/yt";
 
 const SnippetThumbnail = ({ url }) => (
   <figure>
