@@ -41,17 +41,3 @@ export const useSearch = ({ query, pageToken }) => {
 
   return list;
 };
-
-export const useVideo = (id) => {
-  const [video, setVideo] = useState();
-
-  useEffect(() => {
-    fetch(
-      `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics%2Cplayer&id=${id}&key=${API_KEY}`
-    )
-      .then((res) => res.json())
-      .then((video) => setVideo(video.items[0]));
-  }, [id]);
-
-  return video;
-};
