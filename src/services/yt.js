@@ -55,4 +55,3 @@ export const useVideo = (id) => {
 
   return video;
 };
-
