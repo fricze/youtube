@@ -3,7 +3,7 @@ import { useRoutes, A } from "hookrouter";
 import { Search } from "./pages/Search";
 import { Popular } from "./pages/Popular";
 import { Video } from "./pages/Video";
-import { SearchInput } from "./components/SearchInput";
+import { Header } from "./components/Header";
 
 const routes = {
   "/": () => <Popular />,
@@ -17,7 +17,7 @@ const App = () => {
 
   return (
     <div className="app">
-      <SearchInput />
+      <Header />
       <A href="/">Popular</A> <br />
       {routeResult}
     </div>

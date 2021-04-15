@@ -1,11 +1,9 @@
 import { Snippet } from "./Snippet";
 
 export const List = ({ videos }) => (
-  <div>
+  <div className="videos-list">
     {videos.map(({ id, snippet }) => (
-      <div key={id}>
-        <Snippet id={id} {...snippet} />
-      </div>
+      <Snippet key={id} id={id} {...snippet} />
     ))}
   </div>
 );
