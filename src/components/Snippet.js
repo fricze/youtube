@@ -21,7 +21,7 @@ export const Snippet = ({
   <article className="video-snippet">
     <header className="video-header">
       <A className="link" href={"/video/" + id}>
-        <h1>{title}</h1>
+        <h1 className="video-title">{title}</h1>
       </A>
 
       <a href={`https://www.youtube.com/channel/${channelId}`}>

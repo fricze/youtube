@@ -20,6 +20,11 @@
 
 .video-description {
   order: 2;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-top: 16px;
 }
 
 .video-snippet {
@@ -29,8 +34,13 @@
   overflow: hidden;
 }
 
+.video-title {
+  margin-top: 8px;
+}
+
 .video-channel {
-  font-size: 14px;
+  margin-top: 8px;
+  font-style: italic;
 }
 
 .video-thumbnail {
