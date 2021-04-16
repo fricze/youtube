@@ -2,10 +2,13 @@ import unescape from "unescape";
 import { List } from "../components/List";
 import { Paging } from "../components/Paging";
 import { useSearch } from "../services/yt";
+import { useScrollToTop } from "../effects/window";
 
 const Info = ({ infoText }) => <div className="search-info">{infoText}</div>;
 
 export const Videos = ({ query, pageToken }) => {
+  useScrollToTop(pageToken);
+
   const videos = useSearch({ query, pageToken });
   return (
     <div>
