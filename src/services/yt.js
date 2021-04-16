@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 
-const API_KEY = "AIzaSyDHAysMhipieU7n_6M8cAfE1xNduI9lXRY";
+const API_KEY = "";
 
 export const usePopular = ({ pageToken }) => {
   const [list, setList] = useState({ items: [] });
 
   const url =
-    `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=15&regionCode=US&key=${API_KEY}` +
+    `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=15&regionCode=PL&key=${API_KEY}` +
     (pageToken ? `&pageToken=${pageToken}` : "");
 
   useEffect(() => {
