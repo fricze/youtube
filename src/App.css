@@ -75,10 +75,16 @@
   color: #333;
   text-decoration: none;
   font-size: 20px;
+  cursor: pointer;
 }
 
 .page-link:hover {
   text-decoration: underline;
+}
+
+.bookmark {
+  display: block;
+  margin-top: 24px;
 }
 
 .single-video {
